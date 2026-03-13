@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be03a63e3eab1924a8f02459342a266c, type: 3}
+  m_Name: AnaDialogue
+  m_EditorClassIdentifier: Project.Camaleon::NpcDialogue
+  npcName: Ana
+  npcPortrait: {fileID: -7395020437254265036, guid: de970b70391bc9e46900e893374a3c17, type: 3}
+  dialogueLines:
+  - Hola investigador! Con que te podria ayudar?
+  - "Los polinizadores principalmente eliminan insectos da\xF1inos de los cultivos."
+  - "Los manglares protegen las costas y sirven como h\xE1bitat para muchas especies."
+  - Significa que la especie tiene un alto riesgo de desaparecer.
+  - "Proteger \xE1reas naturales ayuda a conservar los h\xE1bitats."
+  autoProgressLines: 
+  EndDialogueLines: 0001010101
+  autoProgressDelay: 2
+  typingSpeed: 0.02
+  voiceSound: {fileID: 8300000, guid: 0b44ca8789efc58499d64244e07b2749, type: 3}
+  voicePitch: 1
+  choices:
+  - dialogueIndex: 0
+    choices:
+    - "\xBFCu\xE1l es uno de los roles m\xE1s importantes de los polinizadores?"
+    - "\xBFPor qu\xE9 son importantes los manglares?"
+    - "\xBFQu\xE9 significa que una especie est\xE9 en peligro de extinci\xF3n?"
+    - "\xBFCu\xE1l es una forma efectiva de ayudar a conservar los h\xE1bitats?"
+    nextDialogueIndexes: 01000000020000000300000004000000

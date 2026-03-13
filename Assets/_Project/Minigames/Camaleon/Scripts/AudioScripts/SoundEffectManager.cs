@@ -9,6 +9,7 @@ public class SoundEffectManager : MonoBehaviour
 
     private static AudioSource audioSource;
     private static AudioSource randomPitchAudioSource;
+    private static AudioSource voiceAudioSource;
     private static SoundEffectLibrary soundEffectLibrary;
     [SerializeField] private Slider sfxSlider;
 
@@ -19,7 +20,9 @@ public class SoundEffectManager : MonoBehaviour
             Instance = this;
             AudioSource[] audioSources = GetComponents<AudioSource>();
             audioSource = audioSources[0];
-            randomPitchAudioSource = audioSources[0];
+            randomPitchAudioSource = audioSources[1];
+            voiceAudioSource = audioSources[2];
+
             soundEffectLibrary = GetComponent<SoundEffectLibrary>();
             //DontDestroyOnLoad(gameObject);
         }
@@ -36,7 +39,7 @@ public class SoundEffectManager : MonoBehaviour
         {
             if (randomPitch) // Remember to use this for footsteps
             {
-                randomPitchAudioSource.pitch = Random.Range(1f, 1.5f);
+                randomPitchAudioSource.pitch = Random.Range(0.67f, 1.5f); // Randomize pitch
                 randomPitchAudioSource.PlayOneShot(audioClip);
             }
             else // Regular audio volume, can be changed on the slider in settings
@@ -44,6 +47,12 @@ public class SoundEffectManager : MonoBehaviour
                 audioSource.PlayOneShot(audioClip);
             }
         }
+    }
+
+    public static void PlayVoice(AudioClip audioClip, float pitch = 1f)
+    {
+        voiceAudioSource.pitch = pitch;
+        voiceAudioSource.PlayOneShot(audioClip);
     }
 
     // Start is called before the first frame update
@@ -56,6 +65,7 @@ public class SoundEffectManager : MonoBehaviour
     {
         audioSource.volume = volume;
         randomPitchAudioSource.volume = volume;
+        voiceAudioSource.volume = volume;
     }
 
     public void OnValueChanged()
